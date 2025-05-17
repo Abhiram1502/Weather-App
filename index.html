@@ -1,25 +1,233 @@
-/* HTML */
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&family=Playwrite+AU+SA:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Weather App</h1>
-        <input type="text" id="city" placeholder="Enter city name">
-        <button onclick="getWeather()">Get Weather</button>
-        <div class="weather" id="weather"></div>
-    </div>
+    <div class="weatherApp">
+        <div class="main-weather">
+            <nav>
+                <div class="logo">
+                    <img id="logo" src="images/icon.png" alt="">
+                    SkyCast
+                </div>
+                <div class="location">
+                    <input type="text" id="city" class="city" placeholder="Enter City Name">
+                    <button id="search"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="dividing">--------------- OR ---------------</div>
+                <button class="currLocation" id="currLocation"><i class="fa-solid fa-location-crosshairs"></i> Current Location</button>
+            </nav>
+            <div class="weather-info">
+                <div class="search-location"><i class="fa-solid fa-location-dot"></i> <span id="location">Delhi , India</span></div>
+                <img class="currWeather" id="currWeather" src="images/default.gif" alt="">
+                <div class="weather-content">
+                    <p>Now</p>
+                    <div class="temp"><span id="temp">36</span> °C</div>
+                    <p id="condition">Sunny</p>
+                    <hr>
+                    <div class="date"><i class="fa-solid fa-calendar-days"></i> <span class="today">01-03-2025</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="side-weather">
+            <div class="hourly-forecast">
+                <h2>Hourly Forecast</h2>
+                <div class="hourly-cards" id="hourlyCards">
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div><div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div><div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                    <div class="weather-card">
+                        <p>9AM</p>
+                        <img src="images/cloud.webp" alt="" height="40px" width="40px">
+                        <p>__°C</p>
+                    </div>
+                </div>
+            </div>
+            <div class="weather-section2">
+                <div class="today-highlights">
+                    <h2>Today's Highlights</h2>
+                    <div class="weather-factors">
+                        <div class="sun-time" id="sun-time">
+                            <div class="sun-rise" id="sun-rise">
+                                <i class="fa-solid fa-sun"></i><i class="fa-solid fa-arrow-up"></i>
+                                <div class="sunrise">
+                                    <p>Sunrise</p>
+                                    <span>06:00 AM</span>
+                                </div>
+                            </div>
+                            <div class="sun-set" id="sun-set">
+                                <i class="fa-solid fa-sun"></i><i class="fa-solid fa-arrow-down"></i>
+                                <div class="sunset">
+                                    <p>Sunrise</p>
+                                    <span>06:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feels-like">
+                            <h3>Feels Like</h3>
+                            <div class="feel-content">
+                                <i class="fa-solid fa-temperature-quarter"></i>
+                                <span>__°C</span>
+                            </div>
+                        </div>
+                        <div class="humidity">
+                            <h3>Humidity</h3>
+                            <div class="humidity-content">
+                                <i class="fa-solid fa-droplet"></i>
+                                <span>__%</span>
+                            </div>
+                        </div>
+                        <div class="wind-speed">
+                            <h3>Wind Speed</h3>
+                            <div class="wind-content">
+                                <i class="fa-solid fa-location-arrow"></i>
+                                <span>__m/s</span>
+                            </div>
+                        </div>
+                        <div class="pressure">
+                            <h3>Pressure</h3>
+                            <div class="pressure-content">
+                                <i class="fa-solid fa-compass"></i>
+                                <span>____hPa</span>
+                            </div>
+                        </div>
+                        <div class="visibility">
+                            <h3>Visibility</h3>
+                            <div class="visible-content">
+                                <i class="fa-solid fa-eye"></i>
+                                <span>_Km</span>
+                            </div>
+                        </div>
+                        <div class="rain">
+                            <h3>Rain (last 1 hour)</h3>
+                            <div class="rain-content">
+                                <i class="fa-solid fa-cloud-rain"></i>
+                                <span>__mm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="days-weather">
+                    <h2>5 days Forecast</h2>
+                    <div class="day-cards">
+                        <div class="day-card">
+                            <img src="images/cloud.webp" height="55px" width="55px" alt="">
+                            <p>__°C</p>
+                            <p>1 March</p>
+                            <p>Monday</p>
+                        </div>
+                        <hr>
+                        <div class="day-card">
+                            <img src="images/cloud.webp" height="55px" width="55px" alt="">
+                            <p>__°C</p>
+                            <p>2 March</p>
+                            <p>Monday</p>
+                        </div>
+                        <hr>
+                        <div class="day-card">
+                            <img src="images/cloud.webp" height="55px" width="55px" alt="">
+                            <p>__°C</p>
+                            <p>3 March</p>
+                            <p>Monday</p>
+                        </div>
+                        <hr>
+                        <div class="day-card">
+                            <img src="images/cloud.webp" height="55px" width="55px" alt="">
+                            <p>__°C</p>
+                            <p>4 March</p>
+                            <p>Monday</p>
+                        </div>
+                        <hr>
+                        <div class="day-card">
+                            <img src="images/cloud.webp" height="55px" width="55px" alt="">
+                            <p>__°C</p>
+                            <p>5 March</p>
+                            <p>Monday</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
     <script src="script.js"></script>
 </body>
 </html>
-
-/* CSS */
-
-
-/* JavaScript */
-
